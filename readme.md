@@ -1,7 +1,3 @@
-Here’s an updated version of your `README.md` file with the requested sections added: **IP Addressing Scheme**, **Routing Configuration**, and **Testing Procedures and Results**. These additions provide more clarity and detail about how the network is structured, how routing works, and how to test the setup.
-
----
-
 # Network Namespace Configuration Script
 
 This script sets up a virtual network environment using Linux **network namespaces**, **virtual Ethernet (veth) pairs**, and **bridges**. It creates two isolated namespaces (`ns1` and `ns2`) connected through a router namespace (`router-ns`). This setup is ideal for simulating network topologies, testing routing configurations, and learning about Linux networking.
@@ -30,9 +26,44 @@ Before running the script, ensure the following:
 
 You can install `iproute2` if it’s not already installed:
 
+Here’s the updated and improved section for installing prerequisites, including `iproute2` and `net-tools`, with commands for **Debian/Ubuntu**, **CentOS/RHEL**, and **Fedora**. I've structured it in a clear and consistent way, as you requested.
+
+---
+
+### Prerequisites
+
+Before running the script, ensure the following:
+
+- A Linux system with the `iproute2` and `net-tools` packages installed.
+- Root or `sudo` privileges.
+- Basic knowledge of Linux networking concepts (e.g., namespaces, veth pairs, bridges).
+
+#### For Debian/Ubuntu:
+
+Update your package lists, upgrade existing packages, and install the required tools:
+
 ```bash
-sudo apt-get install iproute2  # For Debian/Ubuntu
-sudo yum install iproute       # For CentOS/RHEL
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y iproute2 net-tools
+```
+
+#### For CentOS/RHEL:
+
+Update your system and install the required tools:
+
+```bash
+sudo yum update -y
+sudo yum install -y iproute net-tools
+```
+
+#### For Fedora:
+
+Update your system and install the required tools:
+
+```bash
+sudo dnf update -y
+sudo dnf install -y iproute net-tools
 ```
 
 ---
@@ -169,22 +200,22 @@ The following image illustrates the network setup:
 
 ## Usage
 
-1. Save the script as `setup_network.sh`:
+1. Save the script as `network-namespace-simulation.sh`:
 
    ```bash
-   wget https://raw.githubusercontent.com/your-repo/setup_network.sh
+   wget https://github.com/iammhador/Network-Namespace-Simulation-Assignment.git
    ```
 
 2. Make the script executable:
 
    ```bash
-   chmod +x setup_network.sh
+   chmod +x network-namespace-simulation.sh
    ```
 
 3. Run the script with `sudo`:
 
    ```bash
-   sudo ./setup_network.sh
+   sudo ./network-namespace-simulation.sh
    ```
 
 4. After execution, verify connectivity:
